@@ -61,7 +61,7 @@ Telegram:
  In order to use tools you must have:
  - A working webserver with PHP 7.4 and MySQL
  - Email address for notifications (with tools+1@... support)
- - Telegram Bot
+ - Telegram Bot (see @BotFather on TG for instructions)
  - Infobip account registered to send SMS 
  
  Follow these steps:
