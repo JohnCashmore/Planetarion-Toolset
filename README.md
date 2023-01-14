@@ -81,4 +81,4 @@ Telegram:
  ## Troubleshooting
   * You may need to adjust `public/.htaccess` to fit with your environment
   * See `roles` table after install, you may need to add basic data
- 
+  * When a new database, settings table may need a tg_channels [] entry
