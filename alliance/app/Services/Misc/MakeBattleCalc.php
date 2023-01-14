@@ -30,7 +30,9 @@ class MakeBattleCalc
 		'Cat' => 2,
 		'Xan' => 3,
 		'Zik' => 4,
-		'Etd' => 5
+		'Etd' => 5,
+		'Kin' => 6,
+		'Sly' => 7
 	];
 
 	public function __construct(ParseCoordsList $coordParser)
