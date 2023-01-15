@@ -58,7 +58,7 @@ class Stop
 		foreach($ships as $eff => $targetGroup) {
 			$eff = $eff / 100;
 			foreach($targetGroup as $targetShip) {
-				if($targetShip->type == 'EMP') {
+				if($targetShip->damage == 0) {
 					$stopped = ceil($amount/((100-$ship->empres)/100)/($targetShip->guns)/$eff);
 				} else {
 					$stopped = ceil(($armour / $targetShip->damage)/$eff);
