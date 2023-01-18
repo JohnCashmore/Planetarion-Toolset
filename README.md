@@ -71,6 +71,10 @@ Telegram:
  4) Run `php /path/to/tools/alliance/artisan schedule:run` on the hour every hour
  5) Configure Telegram webhook with https://your.domain.tld/bot<bot_key>/hook
  
+ **Additional Steps**
+ INSERT INTO settings VALUES ('tg_channels','[]',NULL,NULL),('tg_notifications_channel','',NULL,NULL),('tg_scans_channel','', NULL, NULL);
+ INSERT INTO roles VALUES (1,'Admin', NULL, NULL),(2,'BC',NULL,NULL),(3,'Member',NULL,NULL),(4,'Scanner',NULL,NULL),(5,'DC',NULL,NULL);
+ 
  ## Usage
  For attacks and Telegram to work you must do the following, every round:
  1) /addchannel or /addscanschannel to start Telegram monitoring
