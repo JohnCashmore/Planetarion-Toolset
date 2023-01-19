@@ -69,7 +69,7 @@ Telegram:
  2) Enter credentials into `alliance/.env`
  3) Import database `patools_webby.sql`
  4) Run `php /path/to/tools/alliance/artisan schedule:run` on the hour every hour
- 5) Configure Telegram webhook with https://your.domain.tld/bot<bot_key>/hook
+ 5) Configure Telegram webhook with https://your.domain.tld/<bot_key>/hook
  
  **Additional Steps**
  Run this in MySQL:
