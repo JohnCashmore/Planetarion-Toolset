@@ -98,7 +98,9 @@ class Eff
 				$kill = 'kill';
 			  break;
 		}
-
+		if ($ship->damage <= 0)
+			$kill = 'hug';
+		
 		if($t1 == 'Roids') {
 			$killed = (int) ($damage / 50);
 			$reply = sprintf('%s %s (%s) will capture %s roids', number_format($amount), $ship->name, $shipValue, $killed);
@@ -131,12 +133,12 @@ class Eff
 			foreach($targetting as $tgt) {
 				$killed = 0;
 
-				if($ship->type != 'EMP') {
+				if($ship->damage > 0) {
 					$killed = (int) ($damage / $tgt->armor);
 				}
 
-				if($ship->type == 'EMP') {
-					$killed = (int) ($shots) * (100 - $tgt->empres)/100;
+				if($ship->damage <= 0) {
+					$killed = (int) ($shots) * (100 - $tgt->empres) / 100;
 				}
 
 				$killed = $killed * $dmgMultiplier[$t];
