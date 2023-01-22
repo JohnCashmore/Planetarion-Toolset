@@ -73,7 +73,7 @@ Telegram:
  
  **Additional Steps**
  Run this in MySQL:
- INSERT INTO settings VALUES ('tg_channels','[]',NULL,NULL),('tg_notifications_channel','',NULL,NULL),('tg_scans_channel','', NULL, NULL);
+ INSERT INTO settings VALUES ('tg_channels','',NULL,NULL),('tg_notifications_channel','',NULL,NULL),('tg_scans_channel','', NULL, NULL);
  INSERT INTO roles VALUES (1,'Admin', NULL, NULL),(2,'BC',NULL,NULL),(3,'Member',NULL,NULL),(4,'Scanner',NULL,NULL),(5,'DC',NULL,NULL);
  
  ## Usage
