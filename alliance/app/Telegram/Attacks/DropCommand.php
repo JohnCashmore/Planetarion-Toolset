@@ -52,7 +52,7 @@ class DropCommand extends BaseCommand
 					$planet = Planet::find($target->planet_id);
 					if ($landingTick == $booking->land_tick && $planet->x == $coords[0] && $planet->y == $coords[1] && $planet->z == $coords[2]):
 						$user = User::where('tg_username',  (isset($this->message->from['id'])?$this->message->from['id']:'1552608528'))->first();
-						if (isset($booking->user_id) && $booking->user_id == $user->tg_username):
+						if (isset($booking->user_id) && $booking->user_id == $user->id):
 							$reply = sprintf('Target dropped (%s:%s:%s LT%s)', $coords[0], $coords[1], $coords[2], $landingTick);
 							if(!count($booking->users)) {
 								$booking->user_id = null;
