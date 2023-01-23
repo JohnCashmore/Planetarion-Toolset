@@ -89,7 +89,7 @@ Telegram:
   * When a new database, settings table may need a tg_channels [] entry
 
 	
-## LICENSE
+## License
 
 The MIT License (MIT)
 
