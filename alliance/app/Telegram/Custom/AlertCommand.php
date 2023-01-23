@@ -25,11 +25,7 @@ class AlertCommand extends BaseCommand
 
 		if(!$this->isWebUser()) return "Error: you are not registered with the tools. Please do !setnick <your_username>";
 		
-		$from = '+447936560084';
-		$username = 'youdsmedia';
-		$password = 'cogxYv-safcar-3jikcy';
-		$postUrl = "https://ejg5yr.api.infobip.com/sms/2/text/advanced";
-		$postData = array("messages" => array($message));
+		<?php 
 		$postDataJson = json_encode($postData);
 		$itterations = 0;
 		
