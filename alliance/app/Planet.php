@@ -125,7 +125,8 @@ class Planet extends Model
 			'4' => 'N',
 			'5' => 'I',
 			'6' => 'J',
-			'7' => 'A'
+			'7' => 'A',
+			'8' => 'M'
 		];
 
 		return $waves[$value];
