@@ -90,7 +90,7 @@ class JumpgateScanParser
 
 		$planet = Planet::with('latestJ', 'latestJ.scan')->where('id', $planetId)->first();
 
-		if((isset($planet->latestJ) && $planet->latestJ->scan->tick < $tick) || !$planet->latest_j || $planet->latestJ->scan->time < $newScan->time) {
+		if((isset($planet->latestJ) && isset($planet->latestJ->scan) && $planet->latestJ->scan->tick < $tick && isset($newScan)) || !$planet->latest_j || $planet->latestJ->scan->time < $newScan->time) {
 			$planet->latest_j = $jgpScan->id;
 			$planet->save();
 		}

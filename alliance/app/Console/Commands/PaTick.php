@@ -13,6 +13,7 @@ use App\AllianceHistory;
 use App\Tick;
 use App\FleetMovement;
 use App\PlanetMovement;
+use App\Politics;
 use Carbon\Carbon;
 use Config;
 use DB;
@@ -68,6 +69,7 @@ class PaTick extends Command
 		$this->tickAlliances();
 		$this->tickGalaxies();
 		$this->tickPlanets();
+		$this->tickPolitics();
 		if($this->tick) {
 			Tick::where('tick', $this->tick)->update([
 			   'length' => number_format(microtime(true) - $this->start, 2)
@@ -93,7 +95,26 @@ class PaTick extends Command
 			return Request::sendMessage($data);
 		}
 	}
+	
+	private function tickPolitics() 
+	{
+		try {
+			$galaxies = file_get_contents(Config::get('dumps.galaxies'));
+		} catch(Exception $e) {
+			return;
+		}
 
+	   $dump = explode("\n", $galaxies);
+
+	   $tick = str_replace('Tick: ', '', $dump[3]);
+	   
+		$relations = Politics::get();
+		foreach ($relations as $relation):
+			if ($relation->expire < $tick)
+				$relation->delete();
+		endforeach;
+	}
+		
 	private function tickPlanets()
 	{
 		$this->planetStart = microtime(true);
@@ -105,8 +126,7 @@ class PaTick extends Command
 		}
 
 		$dump = explode("\n", $planets);
-
-	   $tick = str_replace('Tick: ', '', $dump[3]);
+		$tick = str_replace('Tick: ', '', $dump[3]);
 
 	   if(!PlanetHistory::where('tick', $tick)->first()) {
 

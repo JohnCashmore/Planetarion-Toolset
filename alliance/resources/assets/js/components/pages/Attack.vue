@@ -122,7 +122,7 @@
 										<template v-if="(!target.planet.latest_a || target.planet.latest_a.tick < (tick-24)) && target.planet.latest_u">
 										  <a v-if="target.planet.latest_u.tick >= (tick-24)" v-bind:href="'https://game.planetarion.com/showscan.pl?scan_id='+target.planet.latest_u.pa_id" target="_blank" v-bind:class="{ new: target.planet.latest_u.tick >= (tick-1), mid: (target.planet.latest_u.tick >= (tick-12) && target.planet.latest_u.tick < (tick-1)), old: target.planet.latest_u.tick >= (tick-24) && target.planet.latest_u.tick < (tick-12) }">U</a>
 										</template>
-										<template v-if="target.planet.latest_j">
+										<template v-if="target.planet.latest_j && target.planet.latest_j.scan && target.planet.latest_j.scan">
 										  <a v-if="target.planet.latest_j.scan.tick >= (tick-24)" v-bind:href="'https://game.planetarion.com/showscan.pl?scan_id='+target.planet.latest_j.scan.pa_id" target="_blank" v-bind:class="{ new: target.planet.latest_j.scan.tick >= (tick-1), mid: (target.planet.latest_j.scan.tick >= (tick-12) && target.planet.latest_j.scan.tick < (tick-1)), old: target.planet.latest_j.scan.tick >= (tick-24) && target.planet.latest_j.scan.tick < (tick-12) }">J</a>
 										</template>
 										<a class="calc" target="_blank" v-bind:href="target.calc">C</a>

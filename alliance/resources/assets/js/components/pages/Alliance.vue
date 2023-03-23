@@ -424,6 +424,7 @@
 					  { color: '#00cc00' },
 					  { color: '#cccc00' },
 					  { color: '#cccccc' },
+					  { color: '#888888' },
 					],
 					pieSliceBorderColor: 'pink'
 				},

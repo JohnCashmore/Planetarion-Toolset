@@ -53,10 +53,10 @@ class ProcessEmailNotifications extends Command
 		$email = Config::get('notifications.email_notifications.email_address');
 		$password = Config::get('notifications.email_notifications.email_password');
 		
-		var_dump($email, $password);
+		//var_dump($email, $password);
 		define('PhpImap\SE_UID', 1);
 		$mailbox = new \PhpImap\Mailbox(
-			'{mail.your.domain.tld:993/imap/ssl/novalidate-cert}INBOX', // IMAP server and mailbox folder
+			'{mail.webby.domain.tld:993/imap/ssl/novalidate-cert}INBOX', // IMAP server and mailbox folder
 			$email, // Username for the before configured mailbox
 			$password, // Password for the before configured username
 			false
@@ -206,7 +206,7 @@ class ProcessEmailNotifications extends Command
 			
 			// send notification via email
 			if (isset($user->notification_email_forward) && strlen($user->notification_email_forward) > 0)
-				mail($user->notification_email_forward, 'Planetarion Notification', $data['text'], "From: noreply@your.domain.tld\r\n"); 
+				mail($user->notification_email_forward, 'Planetarion Notification', $data['text'], "From: noreply@webby.domain.tld\r\n"); 
 			
 			 
 			$mailbox->markMailAsRead($id);

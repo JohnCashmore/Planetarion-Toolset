@@ -71,7 +71,6 @@ class Stats
 				$valueNumNeeded += 1;
 			}
 		}
-		var_dump($valueNumNeeded);
 		$valueAverage = intval($valueNeeded / $valueNumNeeded);
 		$valueAmount = $this->getValue($ship->id, 10000, true);
 		$valuePercentage = ($valueAmount / $valueAverage) * 100;

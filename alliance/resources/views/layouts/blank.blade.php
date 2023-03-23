@@ -21,9 +21,12 @@
 	<style>
 		
 
+		div.card div.card-header{background:black;}
+		
+	
 	</style>
 </head>
-<body style="background:url('images/starry.png') repeat center gray">
+<body>
 
 	<div class="py-4" id="mainContainer">
 	  @yield('content')

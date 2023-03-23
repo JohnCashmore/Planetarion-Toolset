@@ -19,6 +19,7 @@
 									<th rowspan="2">Max Planets</th>
 									<th rowspan="2">Max Waves</th>
 									<th rowspan="2">Max Fleets</th>
+									<th rowspan="2">Tick Expiry</th>
 									<th rowspan="2"></th>
 								</tr>
 							</thead>
@@ -29,6 +30,7 @@
 									<td>{{ politics.maxPlanets }}</td>
 									<td>{{ politics.maxWaves }}</td>	
 									<td>{{ politics.maxFleets }}</td>
+									<td>{{ politics.expire }}</td>
 									<td><a v-on:click="removeAgreement(politics.id)" class="btn btn-sm btn-danger" title="Remove Agreement"><i class="fa fa-error fa-minus-circle"></i></a></td>									
 								</tr>
 							</tbody>
@@ -87,6 +89,7 @@
 										<option value="6">Max 6 Fleets</option>
 										<option value="7">Max 7 Fleets</option>
 									</select>
+									<input type="text" name="expire" value="" placeholder="Tick expiry.." id="expire" style="width:100px;border:1px solid gray"/>
 									<br />
 									<button type="submit" class="btn btn-primary" style="margin-top:12px">Save</button>
 								</div>
@@ -108,7 +111,7 @@
 			return {
 				'politics': {},
 				'name': '',
-				 'alliances': {},
+				'alliances': {},
 				'loading': true,
 				loadingAlliances: true,
 				loadingSettings: true
@@ -152,13 +155,11 @@
 						  type: 'success'
 						});
 						this.loadPolitics();
-						
 					});
 				}
 
 			},
-			allianceStatus: function(allianceStatus) {
-				console.log(this, allianceStatus);
+			allianceStatus: function() {
 				if (document.getElementById('allianceStatus').value == 'deal') {
 					document.getElementById('maxPlanets').style.display = 'inline';
 					document.getElementById('maxWaves').style.display = 'inline';
@@ -169,13 +170,14 @@
 					document.getElementById('maxFleets').style.display = 'none';
 				}
 			},
-			allianceRelation: function(allianceRelation) {
-				allianceStatus = document.getElementById('allianceStatus').value;
-				maxPlanets = document.getElementById('maxPlanets').value;
-				maxWaves = document.getElementById('maxWaves').value;
-				maxFleets = document.getElementById('maxFleets').value;
-				allianceRelation = document.getElementById('allianceRelation').value;
-				axios.get('api/v1/politics/' + allianceRelation + '/' + allianceStatus + '/' + maxPlanets + '/' + maxWaves + '/' + maxFleets, {
+			allianceRelation: function() {
+				this.allianceStatus = document.getElementById('allianceStatus').value;
+				this.maxPlanets = document.getElementById('maxPlanets').value;
+				this.maxWaves = document.getElementById('maxWaves').value;
+				this.maxFleets = document.getElementById('maxFleets').value;
+				this.allianceRelation = document.getElementById('allianceRelation').value;
+				this.expire = document.getElementById('expire').value;
+				axios.get('api/v1/politics/' + this.allianceRelation + '/' + this.allianceStatus + '/' + this.maxPlanets + '/' + this.maxWaves + '/' + this.maxFleets + '/' + this.expire, {
 					name: this.name
 				}).then((response) => {
 					this.$notify({
@@ -185,6 +187,7 @@
 						type: 'success'
 					});
 					this.name = '';
+					this.loadSettings();
 					this.loadPolitics();
 				});
 			},
@@ -216,5 +219,17 @@
 			this.loadPolitics();
 			this.loadAlliances();
 		},
+	}
+	
+	function allianceStatus () {
+		if (document.getElementById('allianceStatus').value == 'deal') {
+			document.getElementById('maxPlanets').style.display = 'inline';
+			document.getElementById('maxWaves').style.display = 'inline';
+			document.getElementById('maxFleets').style.display = 'inline';
+		} else {
+			document.getElementById('maxPlanets').style.display = 'none';
+			document.getElementById('maxWaves').style.display = 'none';
+			document.getElementById('maxFleets').style.display = 'none';
+		}
 	}
 </script>

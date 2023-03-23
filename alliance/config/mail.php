@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'pfu@planetarion.space'),
+        'address' => env('MAIL_FROM_ADDRESS', 'tools@webby.domain.tld'),
         'name' => env('MAIL_FROM_NAME', 'Unicorns'),
     ],
 

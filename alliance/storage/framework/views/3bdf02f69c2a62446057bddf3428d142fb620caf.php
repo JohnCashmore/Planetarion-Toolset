@@ -30,4 +30,4 @@
 
 </body>
 </html>
-<?php /**PATH /usr/local/apache/htdocs/your.domain.tld-r34/resources/views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH /usr/local/apache/htdocs/webby.domain.tld-r34/resources/views/layouts/app.blade.php ENDPATH**/ ?>

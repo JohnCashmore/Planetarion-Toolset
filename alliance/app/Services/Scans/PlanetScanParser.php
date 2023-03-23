@@ -66,7 +66,7 @@ class PlanetScanParser
 
 		$planet = Planet::with('latestP', 'latestP.scan')->where('id', $planetId)->first();
 
-		if((isset($planet->latestP) && $planet->latestP->scan->tick < $tick) || !$planet->latest_p || $planet->latestP->scan->time < $newScan->time) {
+		if((isset($planet->latestP) && isset($planet->latestP->scan) && $planet->latestP->scan->tick < $tick && isset($newScan) && isset($planet->latestP->scan) && ($planet->latestP->scan)) || !$planet->latest_p || $planet->latestP->scan->time < $newScan->time) {
 			$planet->latest_p = $planetScan->id;
 			$planet->save();
 		}

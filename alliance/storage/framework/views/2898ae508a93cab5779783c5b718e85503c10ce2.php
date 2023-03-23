@@ -9,4 +9,4 @@ var toolsUrl = '<?php echo e(url('/')); ?>/';
 
 <?php echo file_get_contents('js/pa.js', true); ?>
 
-<?php /**PATH /var/www/vhosts/your.domain.tld/alliance/resources/views/pascript.blade.php ENDPATH**/ ?>
+<?php /**PATH /var/www/vhosts/webby.domain.tld/alliance/resources/views/pascript.blade.php ENDPATH**/ ?>

@@ -37,8 +37,6 @@ class HelpCommand extends BaseCommand
 			'roidcost' => 'Cost of roids given based on supplied information - Usage: !roidcost <roids> <value loss> <mining bonus>',
 			'ship' => 'Retrieve stats for <ship> - Usage: !ship <ship name>',
 			
-			
-			
 			'last24' => 'Fetch stats for last 24 ticks - Usage: !last24 [nick|alliance]',
 			'top5' => 'Retrieve top 5 players with option to specify an alliance - Usage: !top5 [alliance]',
 			'lookup' => 'Fetch your planets details - Usage: !lookup',
@@ -49,7 +47,6 @@ class HelpCommand extends BaseCommand
 			'loosers' => 'Bottom 5 players in alliance',
 			'intel' => 'Set or retrieve intel for planet or galaxy - Usage: !intel <x:y:z> [nick]',
 			
-			
 			'latestscan' => 'Latest scan for given coords and type - Usage: !latestscan <x:y:z> <pdau>',
 			'cost' => 'Retrieve cost of given ships - Usage: !cost <amount> <ship>',
 			
@@ -58,6 +55,28 @@ class HelpCommand extends BaseCommand
 			'parse' => 'Parse given scan url - Usage: !parse <scan url>',
 			'jpg' => 'Parse scan link and notify those with prelaunch on them - Usage: !jpg <group scan url>',
 			'spam' => 'Spam intel for given alliance - Usage: !spam <alliance>',
+			'funddestroyer' => 'Shows you who has been raping the fund with scan reqs.',
+			'mayday' => "<all|ter|xan|cat|zik|etd>, e.g !mayday all spams the tag, !mayday cat will notify Cat members of an emergency",
+			'pscan' => "<x:y:z> [l] will summarise the latest P scan for that target, adding the parameter 'l' will give you the scan link instead.",	
+			'dscan' => "<x:y:z> [l] will summarise the latest D scan for that target, adding the parameter 'l' will give you the scan link instead.",
+			'uscan' => "<x:y:z> [l] will summarise the latest U scan for that target, adding the parameter 'l' will give you the scan link instead.",
+			'jscan' => "<x:y:z> [l] will summarise the latest J scan for that target, adding the parameter 'l' will give you the scan link instead.",
+			'ascan' => "<x:y:z> [l] will summarise the latest A scan for that target, adding the parameter 'l' will give you the scan link instead.",
+			'mscan' => "<x:y:z> [l] will summarise the latest M scan for that target, adding the parameter 'l' will give you the scan link instead. Adding 'base' or 'f1' or 'f2' or 'f3' will show you that specific fleet composition",
+			'localtime'	=> "<@member> - When using !localtime it will show your local timezone, if set in the webby, if you tag another Telegram user it will try to lookup the local timezone of that member.",
+			'history'	=> "[x:y:z|webby_nickname|@telegram_nickname] - This will display the ranks and gains/losses of the specified planet/member. If nothing is provided it will show your own planet history.",
+			'jan' => "[jsweep-scangrpid] - Will analyse and show results for j-sweep. For instance: !jscan 3ozt9l0t5ql3vow",
+			'bigdicks' => "[score|value|size|xp] - Shows the alliance's top 10 winners for that day.",
+			'smalldicks' => '[score|value|size|xp] - Shows the alliance\'s top 10 losers for that day',
+			'roidcost' => "<roids> <value_loss> <mining_bonus> - Will show you how long it takes to earn back capped roids at value loss.",
+			'ship' => "<name> - Will show you the attributes of a particular ship.",
+			'top10'	=> "[tag] [ter|cat|xan|zik|etd] - Will show the top 10 players descending in score. If tag and or race given, will show top 10 for that tag and or race. Example: !top10 vgn ter",
+			'topamps' => "Will show the top 10 uni amp builders. If tag is added, will show top 10 for that tag. Example: !topamps vgn",
+			'topdists' => "Will show the top 10 uni dist builders. If tag is added, will show top 10 for that tag. Example: !topdists vgn",
+			'topbgs' => "[score|value|size|xp] - Will show a summary of the current BG's based on their average score, value, size or xp. Example: !topbgs score",
+			'prodticks' => "<amount> <ship> <cost_variance> <amount_of_factories> <government> <pop_bonus> - for example: !prodticks 5k dragon -2.2 5 corp 60",
+			'bash' => "[alliance] - Tells you minimum value and minimum score below which you cannot attack a planet. If alliance is given, returns a list of coords that you CAN attack.",
+			'scanhistory' => "<x:y:z> [P|D|U|N|J|A|M] - Will show you the last 5 scans available for this planet, if no scantype provided it will show all types.",
 			
 			'whodidthis' => 'Random love for those that helped with this project',
 			

@@ -21,9 +21,9 @@ class PoliticsController extends ApiController
 		return Politics::fetch();
 	}
 
-	public static function change($allianceId, $status, $maxPlanets = 0, $maxWaves = 0, $maxFleets = 0)
+	public static function change($allianceId, $status, $maxPlanets = 0, $maxWaves = 0, $maxFleets = 0, $expire = NULL)
 	{
-		return Politics::change($allianceId, $status, $maxPlanets, $maxWaves, $maxFleets);
+		return Politics::change($allianceId, $status, $maxPlanets, $maxWaves, $maxFleets, $expire);
 	}
 	
 	public static function remove($politicsId)

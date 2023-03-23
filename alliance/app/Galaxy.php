@@ -77,7 +77,9 @@ class Galaxy extends Model
 		  'Cat' => 0,
 		  'Xan' => 0,
 		  'Zik' => 0,
-		  'Etd' => 0
+		  'Etd' => 0,
+		  'Sly' => 0,
+		  'Kin' => 0
 	  ];
 
 	  $planets = $this->planets()->get();

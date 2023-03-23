@@ -72,4 +72,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.blank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /usr/local/apache/htdocs/your.domain.tld/resources/views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.blank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /usr/local/apache/htdocs/webby.domain.tld/resources/views/auth/login.blade.php ENDPATH**/ ?>

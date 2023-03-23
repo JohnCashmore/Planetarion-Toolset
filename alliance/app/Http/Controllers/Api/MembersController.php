@@ -79,7 +79,6 @@ class MembersController extends ApiController
 		$user->fill($request->all());
 		
 		// handle password
-		var_dump($request->password);
 		if (isset($request->password) && strlen($request->password) > 3):
 			$user->password = Hash::make($request->password);
 		endif;

@@ -66,7 +66,9 @@
 									<th class="race Cat text-center" v-if="showRaces">C</th>
 									<th class="race Xan text-center" v-if="showRaces">X</th>
 									<th class="race Zik text-center" v-if="showRaces">Z</th>
-									<th class="race Etd text-center" v-if="showRaces">E</th>
+									<th class="race Kin text-center" v-if="showRaces">K</th>
+									<th class="race Sly text-center" v-if="showRaces">S</th>
+									
 								</tr>
 							</thead>
 							<tbody>
@@ -92,7 +94,9 @@
 									<td class="race Cat text-center" v-if="showRaces">{{ galaxy.races.Cat }}</td>
 									<td class="race Xan text-center" v-if="showRaces">{{ galaxy.races.Xan }}</td>
 									<td class="race Zik text-center" v-if="showRaces">{{ galaxy.races.Zik }}</td>
-									<td class="race Etd text-center" v-if="showRaces">{{ galaxy.races.Etd }}</td>
+									<td class="race Kin text-center" v-if="showRaces">{{ galaxy.races.Kin }}</td>
+									<td class="race Sly text-center" v-if="showRaces">{{ galaxy.races.Sly }}</td>
+									
 									<td class="alliances" v-if="showAllys">
 										<span class="button" v-for="alliance in galaxy.alliances" v-tooltip:top="alliance.name" v-bind:class="{ green: alliance.relation == 'friendly', red: alliance.relation == 'hostile', blue: alliance.is_alliance }">{{ alliance.count }} {{ alliance.nickname }}</span>
 									</td>

@@ -64,6 +64,22 @@ trait ScanTrait {
 			
 			// remove scan request
 			$req->delete();
+			
+			// remove from notifications channel
+			$chatId = \App\Setting::where('name', 'tg_scans_channel')->first();
+
+			if($chatId->value) {
+				
+				
+
+				$telegram = new Telegram(Config::get('phptelegrambot.bot.api_key'), Config::get('phptelegrambot.bot.name'));
+	
+				$result = Request::sendMessage($data);
+				
+				Request::deleteMessage(['chat_id' => $chatId->value, 'message_id' => $req->message_id]);
+				
+			}
+
 		}
 		
 		

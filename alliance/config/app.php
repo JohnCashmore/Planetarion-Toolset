@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://your.domain.tld'),
+    'url' => env('APP_URL', 'https://webby.domain.tld'),
 
     /*
     |--------------------------------------------------------------------------

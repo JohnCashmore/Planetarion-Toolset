@@ -16,14 +16,19 @@ use App\Setting;
 use DB;
 use App\Telegram\Custom\WhodidthisCommand;
 use App\Telegram\Custom\SmsCommand;
-use App\Telegram\Custom\JpgCommand;
+use App\Telegram\Custom\EffCommand;
 
 use App\Telegram\Commands\DisplaychannelsCommand;
 
 use App\Services\Misc\Transit;
 use App\Services\Misc\Stats;
-use App\Services\Misc\Races;
-
+use App\Services\Misc\Stop;
+use App\Telegram\Attacks\LaunchCommand;
+use App\Telegram\Attacks\BookCommand;
+use App\Telegram\Attacks\ClaimedCommand;
+use App\Telegram\Attacks\DropCommand;
+use App\Telegram\Attacks\FreeCommand;
+use App\Services\ScanParser;
 
 class TelegramTest extends Command
 {
@@ -58,10 +63,10 @@ class TelegramTest extends Command
 	 */
 	public function handle()
 	{
-
-		$jpg = new JpgCommand();
-		$jpg->text = 'https://game.planetarion.com/showscan.pl?scan_grp=149nzzg581rc16p';
-		echo $jpg->execute();
+		$cmd = new EffCommand();
+		$cmd->text = '10k beetle';
+		echo $cmd->execute();
+//		var_dump($cmd->parse('https://game.planetarion.com/showscan.pl?scan_grp=jinfiptb4g3jsif'));
 		
 	}
 }

@@ -9,4 +9,4 @@ var toolsUrl = '<?php echo e(url('/')); ?>/';
 
 <?php echo file_get_contents('js/pa.js', true); ?>
 
-<?php /**PATH /home/patools/domains/your.domain.tld/arbiter/resources/views/pascript.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/patools/domains/webby.domain.tld/arbiter/resources/views/pascript.blade.php ENDPATH**/ ?>

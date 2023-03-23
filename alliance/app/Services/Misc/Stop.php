@@ -30,8 +30,8 @@ class Stop
 
 	public function execute()
 	{
+		
 		$amount = short2num($this->amount);
-
 		if($this->name) {
 			if(Ship::where('name', 'LIKE', '%' . $this->name . '%')->count() == 1) {
 				$ship = Ship::where('name', 'LIKE', '%' . $this->name . '%')->first();
@@ -43,8 +43,9 @@ class Stop
 				}
 			}
 		} 
-
+		
 		if($this->id) $ship = Ship::find($this->id);
+		
 
 		$armour = $ship->armor * $amount;
 		$eres = $ship->empres * $amount;
@@ -54,15 +55,18 @@ class Stop
 		$reply = sprintf('%s %s (%s) will be stopped by ' . PHP_EOL, number_format($amount), $ship->name, $shipValue);
 
 		$ships = $this->getShips($ship);
-
+		
+		$a = 0;
 		foreach($ships as $eff => $targetGroup) {
 			$eff = $eff / 100;
 			foreach($targetGroup as $targetShip) {
-				if($targetShip->type == 'EMP') {
+				
+				if($targetShip->damage == 0) {
 					$stopped = ceil($amount/((100-$ship->empres)/100)/($targetShip->guns)/$eff);
 				} else {
 					$stopped = ceil(($armour / $targetShip->damage)/$eff);
 				}
+				
 				
 				// process stop
 				if ($ship->init <= $targetShip->init):
@@ -73,13 +77,14 @@ class Stop
 					if (is_numeric($stops))
 						$stopped += $stops;
 				endif;
-				
-				$value = (($targetShip->metal + $targetShip->crystal + $targetShip->eonium) * $stopped) / 100;
 
+				$value = (($targetShip->metal + $targetShip->crystal + $targetShip->eonium) * $stopped) / 100;
 				$reply .= sprintf(" %d %s (%s) " . PHP_EOL, $stopped, $targetShip->name, number_shorten($value, 1));
+				
 			}
 		}
-
+		
+		
 		return substr($reply, 0, -2);
 	}
 

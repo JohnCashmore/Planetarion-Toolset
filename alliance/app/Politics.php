@@ -20,7 +20,7 @@ class Politics extends Model
 		return $retVal;
 	}
 	
-	public static function change ($allianceId, $status, $maxPlanets = 0, $maxWaves = 0, $maxFleets = 0)
+	public static function change ($allianceId, $status, $maxPlanets = 0, $maxWaves = 0, $maxFleets = 0, $expire = NULL)
 	{
 		$currentRelations = Politics::where('allianceId', $allianceId)->count();
 		if ($currentRelations == 0):
@@ -40,6 +40,8 @@ class Politics extends Model
 			$politics->maxWaves = NULL;
 			$politics->maxFleets = NULL;
 		endif;
+		
+		$politics->expire = $expire;
 		$politics->save();
 		
 		

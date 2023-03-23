@@ -72,4 +72,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.blank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/patools/domains/your.domain.tld/arbiter/resources/views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.blank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/patools/domains/webby.domain.tld/arbiter/resources/views/auth/login.blade.php ENDPATH**/ ?>

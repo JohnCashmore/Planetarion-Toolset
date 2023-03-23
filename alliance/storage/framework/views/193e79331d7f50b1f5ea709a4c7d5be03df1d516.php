@@ -35,4 +35,4 @@
 
 </body>
 </html>
-<?php /**PATH /home/patools/domains/your.domain.tld/arbiter/resources/views/layouts/blank.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/patools/domains/webby.domain.tld/arbiter/resources/views/layouts/blank.blade.php ENDPATH**/ ?>

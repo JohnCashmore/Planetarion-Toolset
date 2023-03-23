@@ -11,12 +11,12 @@ use Config;
 
 class CreateScanRequest
 {
-	private $x;
-	private $y;
-	private $z;
-	private $scanType;
-	private $tick;
-	private $userId;
+	public $x;
+	public $y;
+	public $z;
+	public $scanType;
+	public $tick;
+	public $userId;
 
 	public function setX($x)
 	{
@@ -63,7 +63,6 @@ class CreateScanRequest
 		  ])->first();
 
 		if(!$planet) return response()->json(['error' => sprintf('No planet with coords %s:%s:%s found.', $this->x, $this->y, $this->z)], 422);
-
 		$scans = Config::get('scans');
 
 		foreach($this->scanType as $type) {
@@ -76,6 +75,7 @@ class CreateScanRequest
 			$request->user_id = $this->userId;
 			$request->planet_id = $planet->id;
 			$request->save();
+			
 
 			$chatId = Setting::where('name', 'tg_scans_channel')->first();
 
@@ -89,9 +89,11 @@ class CreateScanRequest
 
 				$telegram = new Telegram(Config::get('phptelegrambot.bot.api_key'), Config::get('phptelegrambot.bot.name'));
 	
-				Request::sendMessage($data);
+				$result = Request::sendMessage($data);
+				
 			}
-			
+			$request->message_id = $result->result->message_id;
+			$request->save();
 		}
 
 		return "Scans requested";

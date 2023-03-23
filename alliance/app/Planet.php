@@ -103,8 +103,10 @@ class Planet extends Model
 		if(!Auth::user() || !Auth::user()->planet_id) return false;
 
 		$user = User::with('planet')->find(Auth::user()->id);
-		$bashScore = $user->planet->getOriginal('score') * 0.6;
-		$bashValue = $user->planet->getOriginal('value') * 0.4;
+		if (isset($user->planet)) {
+			$bashScore = $user->planet->getOriginal('score') * 0.6;
+			$bashValue = $user->planet->getOriginal('value') * 0.4;
+		}
 		if($this->getOriginal('score') < $bashScore && $this->getOriginal('value') < $bashValue) return true;
 
 		return false;
@@ -125,7 +127,8 @@ class Planet extends Model
 			'4' => 'N',
 			'5' => 'I',
 			'6' => 'J',
-			'7' => 'A'
+			'7' => 'A',
+			'8' => 'M'
 		];
 
 		return $waves[$value];

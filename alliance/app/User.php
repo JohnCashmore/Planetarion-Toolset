@@ -137,10 +137,9 @@ class User extends Authenticatable
 	{
 		if(Config::get('notifications.email_notifications.enabled')) {
 			$email = Config::get('notifications.email_notifications.email_address');
-			$email = str_replace("@your.domain.tld", "", $email);
-			$email = str_replace("@your.domain.tld", "", $email);
+			$email = str_replace("@webby.domain.tld", "", $email);
 			
-			return $email . "+" . $this->id . "@your.domain.tld";
+			return $email . "+" . $this->id . "@webby.domain.tld";
 		}
 
 		return;

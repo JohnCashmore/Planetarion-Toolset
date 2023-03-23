@@ -5,7 +5,7 @@
 
     RewriteEngine On
 
-        RewriteBase /planetariontools.space/alliance/public
+        RewriteBase /pinkfluffyunicorns.space/alliance/public
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -21,3 +21,4 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+

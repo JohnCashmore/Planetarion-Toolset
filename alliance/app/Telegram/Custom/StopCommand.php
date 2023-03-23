@@ -16,8 +16,8 @@ class StopCommand extends BaseCommand
 
 		$string = explode(" ", $this->text);
 
-		if(!$string[0] || !$string[1]) return "usage: !stop <amount> <ship>";
-
+		if(!isset($string[0]) || !isset($string[1])) return "usage: !stop <amount> <ship>";
+		
 		return $stop->setName($string[1])
 				->setAmount($string[0])
 				->execute();

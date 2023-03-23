@@ -172,7 +172,10 @@ class AllianceController extends ApiController
 			'Cat' => 0,
 			'Xan' => 0,
 			'Zik' => 0,
-			'Etd' => 0
+			'Etd' => 0,
+			'Kin' => 0,
+			'Sly' => 0
+				
 		];
 
 		foreach($members as $member) {
@@ -185,7 +188,9 @@ class AllianceController extends ApiController
 			['Cat', $races['Cat']],
 			['Xan', $races['Xan']],
 			['Zik', $races['Zik']],
-			['Etd', $races['Etd']]
+			['Etd', $races['Etd']],
+			['Kin', $races['Kin']],
+			['Sly', $races['Sly']]
 		];
 
 		return $chart;
@@ -209,7 +214,7 @@ class AllianceController extends ApiController
 			}
 		}
 
-		$races = ['Terran', 'Cathaar', 'Xandathrii', 'Zikonian', 'Eitraides'];
+		$races = ['Terran', 'Cathaar', 'Xandathrii', 'Zikonian', 'Kinthia', 'Slythonian'];
 
 		$ships = array_merge(array_flip($races), $ships);
 
@@ -254,7 +259,6 @@ class AllianceController extends ApiController
 			$classValue[$key]['value'] = $value;
 			$classValue[$key]['percentage'] = ($value) ? number_format(($value / $allyValue) * 100, 2) : 0;
 		}
-
 		$classes = [
 			['Class', 'Amount'],
 			['Fighter', $classValue['Fighter']['value']],

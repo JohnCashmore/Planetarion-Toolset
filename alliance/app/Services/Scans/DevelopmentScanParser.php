@@ -91,7 +91,7 @@ class DevelopmentScanParser
 
 		$planet = Planet::with('latestD', 'latestD.scan')->where('id', $planetId)->first();
 
-		if((isset($planet->latestD) && $planet->latestD->scan->tick < $tick) || !$planet->latest_d || $planet->latestD->scan->time < $newScan->time) {
+		if((isset($planet->latestD) && isset($planet->latestD->scan) && $planet->latestD->scan->tick < $tick && isset($newScan)) || !$planet->latest_d || $planet->latestD->scan->time < $newScan->time) {
 			$planet->latest_d = $devScan->id;
 			$planet->save();
 		}

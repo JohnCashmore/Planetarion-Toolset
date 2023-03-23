@@ -234,7 +234,7 @@ class AttackController extends ApiController
 				}
 			}
 
-			if(!empty($target->planet->latestP) && $target->planet->latestP->scan->tick >= ($tick->tick-24)) {
+			if(!empty($target->planet->latestP) && $target->planet->latestP->scan && $target->planet->latestP->scan->tick >= ($tick->tick-24)) {
 				$metal = str_replace(',','', $target->planet->latestP->res_metal);
 				$crystal = str_replace(',','', $target->planet->latestP->res_crystal);
 				$eonium = str_replace(',','', $target->planet->latestP->res_eonium);

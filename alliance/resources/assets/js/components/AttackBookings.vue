@@ -44,7 +44,7 @@
 							<template v-if="(!booking.target.planet.latest_a || booking.target.planet.latest_a.tick < ($parent.tick-24)) && booking.target.planet.latest_u">
 								<a v-if="booking.target.planet.latest_u.tick >= ($parent.tick-24)" v-bind:href="'https://game.planetarion.com/showscan.pl?scan_id='+booking.target.planet.latest_u.pa_id" target="_blank" v-bind:class="{ new: booking.target.planet.latest_u.tick >= ($parent.tick-1), mid: (booking.target.planet.latest_u.tick >= ($parent.tick-12) && booking.target.planet.latest_u.tick < ($parent.tick-1)), old: booking.target.planet.latest_u.tick >= ($parent.tick-24) && booking.target.planet.latest_u.tick < ($parent.tick-12) }">U</a>
 							</template>
-							<template v-if="booking.target.planet.latest_j">
+							<template v-if="booking.target.planet.latest_j && booking.target.planet.latest_j.scan && booking.target.planet.latest_j.scan.tick">
 								<a v-if="booking.target.planet.latest_j.scan.tick >= ($parent.tick-24)" v-bind:href="'https://game.planetarion.com/showscan.pl?scan_id='+booking.target.planet.latest_j.scan.pa_id" target="_blank" v-bind:class="{ new: booking.target.planet.latest_j.scan.tick >= ($parent.tick-1), mid: (booking.target.planet.latest_j.scan.tick >= ($parent.tick-12) && booking.target.planet.latest_j.scan.tick < ($parent.tick-1)), old: booking.target.planet.latest_j.scan.tick >= ($parent.tick-24) && booking.target.planet.latest_j.scan.tick < ($parent.tick-12) }">J</a>
 							</template>
 							<a class="calc" target="_blank" v-bind:href="booking.target.calc">C</a>

@@ -18,4 +18,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.blank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/vhosts/your.domain.tld/alliance/resources/views/auth/registered.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.blank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/vhosts/webby.domain.tld/alliance/resources/views/auth/registered.blade.php ENDPATH**/ ?>

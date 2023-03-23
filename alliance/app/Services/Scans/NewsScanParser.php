@@ -134,7 +134,7 @@ class NewsScanParser
 
 		$planet = Planet::with('latestN', 'latestN.scan')->where('id', $planetId)->first();
 
-		if((isset($planet->latestN) && $planet->latestN->scan->tick < $tick) || !$planet->latest_N || $planet->latestN->scan->time < $newScan->time) {
+		if((isset($planet->latestN) && isset($planet->latestN->scan) && $planet->latestN->scan->tick < $tick && isset($newScan)) || !$planet->latest_N || $planet->latestN->scan->time < $newScan->time) {
 			$planet->latest_N = $news->id;
 			$planet->save();
 		}

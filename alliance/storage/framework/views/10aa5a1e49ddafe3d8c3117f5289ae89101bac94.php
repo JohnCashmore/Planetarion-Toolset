@@ -23,14 +23,14 @@
 	<link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 
 	<style>
-		body{background:pink;}
+		body{background:gray;}
 		body div#app div nav.sidebar {background:#cc60c8!important;}
 		body div#app a.home{background:#aa2790!important} 
 		body div#app .navbar-nav .nav-link.active {background:purple!important;}
 		body div#app .navbar-nav .nav-link:hover {background:#d995d7!important;}
 		body div#app div.search-bar {background:#aa2790;} 
 		body div#app div.nav-header {background:purple;}
-		body div#app div.app-content {background:pink;margin:40px 20px!important;}
+		body div#app div.app-content {background:gray;margin:40px 20px!important;}
 		body div#app div.card-header {background:#aa5ba7;margin-top:30px;padding:10px 15px;color:white;}
 		body div#app div.app-content .table-striped tr{background:#efc9f3;}
 		body div#app div.app-content div.card-body{background:#efc9f3;}
@@ -49,4 +49,4 @@
 
 </body>
 </html>
-<?php /**PATH /usr/local/apache/htdocs/your.domain.tld/alliance/resources/views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH /usr/local/apache/htdocs/webby.domain.tld/alliance/resources/views/layouts/app.blade.php ENDPATH**/ ?>

@@ -48,7 +48,7 @@
     $j = w.jQuery;
     $pa = w.PA;
 
-    $j('ul#menu').append('<div style="background:pink; color: black; text-align: center;padding: 5px; margin-top: 10px">VenoX script running</div>');
+    $j('ul#menu').append('<div style="background:gray; color: black; text-align: center;padding: 5px; margin-top: 10px">VenoX script running</div>');
 
     var pageHtml = $j('html').html();
 

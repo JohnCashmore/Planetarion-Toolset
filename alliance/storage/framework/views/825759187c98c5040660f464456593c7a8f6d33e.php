@@ -30,4 +30,4 @@
 
 </body>
 </html>
-<?php /**PATH /home/patools/domains/your.domain.tld/arbiter/resources/views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/patools/domains/webby.domain.tld/arbiter/resources/views/layouts/app.blade.php ENDPATH**/ ?>

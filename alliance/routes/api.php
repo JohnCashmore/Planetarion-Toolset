@@ -71,6 +71,7 @@ Route::group(['prefix' => 'v1'], function() {
       Route::resource('/covops', 'Api\CovOpController');
       Route::get('/politics', 'Api\PoliticsController@fetch');
 	  Route::get('/politics/remove/{id}', 'Api\PoliticsController@remove');
+      Route::get('/politics/{allianceId}/{status}/{maxPlanets}/{maxWaves}/{maxFleets}/{expire}', 'Api\PoliticsController@change');
       Route::get('/politics/{allianceId}/{status}/{maxPlanets}/{maxWaves}/{maxFleets}', 'Api\PoliticsController@change');
       Route::get('/schedule/{userId}', 'Api\ScheduleController@fetch');
       Route::get('/schedule/{userId}/{dateTime}/{action}', 'Api\ScheduleController@change');

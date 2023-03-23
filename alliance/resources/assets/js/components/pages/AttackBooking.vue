@@ -54,7 +54,7 @@
 										<template v-if="(!fleet.planet_from.latest_a || fleet.planet_from.latest_a.tick < (settings.tick-24)) && fleet.planet_from.latest_u">
 											<a v-if="fleet.planet_from.latest_u.tick >= (settings.tick-24)" v-bind:href="'https://game.planetarion.com/showscan.pl?scan_id='+fleet.planet_from.latest_u.pa_id" target="_blank" v-bind:class="{ new: fleet.planet_from.latest_u.tick >= (settings.tick-1), mid: (fleet.planet_from.latest_u.tick >= (settings.tick-12) && fleet.planet_from.latest_u.tick < (settings.tick-1)), old: fleet.planet_from.latest_u.tick >= (settings.tick-24) && fleet.planet_from.latest_u.tick < (settings.tick-12) }">U</a>
 										</template>
-										<template v-if="fleet.planet_from.latest_j">
+										<template v-if="fleet.planet_from.latest_j && fleet.planet_from.latest_j.scan && fleet.planet_from.latest_j.scan.tick">
 											<a v-if="fleet.planet_from.latest_j.scan.tick >= (settings.tick-24)" v-bind:href="'https://game.planetarion.com/showscan.pl?scan_id='+fleet.planet_from.latest_j.scan.pa_id" target="_blank" v-bind:class="{ new: fleet.planet_from.latest_j.scan.tick >= (settings.tick-1), mid: (fleet.planet_from.latest_j.scan.tick >= (settings.tick-12) && fleet.planet_from.latest_j.scan.tick < (settings.tick-1)), old: fleet.planet_from.latest_j.scan.tick >= (settings.tick-24) && fleet.planet_from.latest_j.scan.tick < (settings.tick-12) }">J</a>
 										</template>
 									</td>

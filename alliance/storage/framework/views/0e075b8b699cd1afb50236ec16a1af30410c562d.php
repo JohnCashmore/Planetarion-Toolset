@@ -24,7 +24,7 @@
 		}
 		div#mainContainer img {display:block;margin:auto;margin-bottom:20px}
 		div.unicorn {font-size:50px;color:pink;text-align:center;font-weight:bold;font-family:sans-serif;padding-top:30px;}
-		div.card div.card-body{background:pink!important;color:#cc11c5;}
+		div.card div.card-body{background:gray!important;color:#cc11c5;}
 		div.card div.card-header{background:#cc11c5;}
 		div.card div.card-body div.form-group label, div.card div.card-body div.form-group a, div.card div.card-body div.form-group label a:hover, div.card div.card-body div.form-group a:visited {color:#cc11c5;}
 		div.card div.card-body div.form-group a, div.card div.card-body div.form-group label a:hover, div.card div.card-body div.form-group a:visited {font-weight:bold;}
@@ -43,4 +43,4 @@
  
 </body>
 </html> 
-<?php /**PATH /var/www/vhosts/your.domain.tld/alliance/resources/views/layouts/blank.blade.php ENDPATH**/ ?>
+<?php /**PATH /var/www/vhosts/webby.domain.tld/alliance/resources/views/layouts/blank.blade.php ENDPATH**/ ?>

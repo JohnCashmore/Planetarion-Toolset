@@ -2,46 +2,66 @@
 namespace App\Telegram\Custom;
 
 use App\Telegram\Custom\BaseCommand;
-use App;
-use App\Tick;
 use App\User;
-use App\Alliance;
-use App\Planet;
-use Carbon\Carbon;
+use App;
+use DB;
 
-class BigdicksCommand extends BaseCommand
+class BigDicksCommand extends BaseCommand
 {
-	protected $command = "!bigdicks";
+    protected $command = "!bigdicks";
 
-	public function execute()
-	{
-		$string = explode(" ", $this->text);
-		$reply = '';
-		
-		// retrieve data
-		$alliance = Alliance::where('name', 'LIKE',  '%Unicorns%')->first();
-		$bigdicks = Planet::where('alliance_id', $alliance->id)->orderBy('growth_score', 'desc')->take(5)->get();
-		
-		// prepare data
-		foreach ($bigdicks as $planet):
-			$user = User::where('planet_id', $planet->id)->first();
-			if (empty($user))
-				$username = 'unknown';
-			else
-				$username = $user->name;
-			
-			$reply .= sprintf('%s %s:%s:%s Score: %s (%s) Size: %s (%s) Value: %s (%s) XP: %s (%s)' . PHP_EOL,
-				$username,
-				$planet->x, $planet->y, $planet->z, 
-				number_format($planet->score), $planet->rank_score, 
-				number_format($planet->size), $planet->rank_size, 
-				number_format($planet->value), $planet->rank_value, 
-				number_format($planet->xp), $planet->rank_xp
-			);
-		endforeach;
-		
-		return $reply;
-
-		
-	}
+    public function execute()
+    {
+        if(!$this->isWebUser()) return "User can not be authenticated with webby.";
+        if(!$this->isChannelAllowed()) return "You can not use that command in this channel";
+   
+        $members = User::orderBy('name', 'ASC')->where(['is_enabled' => 1])->whereNotNull('planet_id')->get();
+    
+        $MEMBERSSUMMARY = collect([]);
+        foreach ($members as $member) {
+            $PLANET             = DB::table('planets')->where('id', $member->planet_id)->first();
+            $GROWTH_VALUE       = ($PLANET->growth_value) ?? 0;
+            $GROWTH_SCORE       = ($PLANET->growth_score) ?? 0;
+            $GROWTH_SIZE        = ($PLANET->growth_size) ?? 0;
+            $GROWTH_XP          = ($PLANET->growth_xp) ?? 0;
+            $MEMBERSTATS = collect(["name" => $member->name, "growth_value" => $GROWTH_VALUE, "growth_score" => $GROWTH_SCORE, "growth_size" => $GROWTH_SIZE, "growth_xp" => $GROWTH_XP]);            
+            $MEMBERSSUMMARY->push($MEMBERSTATS);
+        }
+    
+            if(!$this->text || strtolower($this->text) == "score") {
+                $ORDER                  = $MEMBERSSUMMARY->sortByDesc('growth_score');
+                $ORDER_TEXT             = "DAY GROWTH SCORE";
+                $ORDER_VALUE            = "growth_score";
+            }
+    
+            if(strtolower($this->text) == "value") {
+                $ORDER                  = $MEMBERSSUMMARY->sortByDesc('growth_value');
+                $ORDER_TEXT             = "DAY GROWTH VALUE";
+                $ORDER_VALUE            = "growth_value";
+            }
+    
+            if(strtolower($this->text) == "size") {
+                $ORDER                  = $MEMBERSSUMMARY->sortByDesc('growth_size');
+                $ORDER_TEXT             = "DAY GROWTH SIZE";
+                $ORDER_VALUE            = "growth_size";
+            }
+    
+            if(strtolower($this->text) == "xp") {
+                $ORDER                  = $MEMBERSSUMMARY->sortByDesc('growth_xp');
+                $ORDER_TEXT             = "DAY GROWTH XP";
+                $ORDER_VALUE            = "growth_xp";
+            }
+            
+            $RESULTS = $ORDER->take(10);
+            $RESULTS->all();
+    
+            $RESULT                     = "BIG DICKS: " . $ORDER_TEXT . "\n\n";
+            $ORDER_NUMBER               = 1;
+            foreach($RESULTS as $RECORD) {
+                $RESULT                .= "#" . $ORDER_NUMBER . " " . $RECORD->get('name') . " (+" . number_format($RECORD->get($ORDER_VALUE)) . "), ";
+                $ORDER_NUMBER           = $ORDER_NUMBER + 1;
+            }
+    
+            return substr($RESULT, 0, -2);
+    }
 }

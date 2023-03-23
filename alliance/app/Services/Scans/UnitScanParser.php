@@ -55,7 +55,7 @@ class UnitScanParser
 
 		$planet = Planet::with('latestU')->where('id', $planetId)->first();
 
-		if((isset($planet->latestU) && $planet->latestU->tick < $tick) || !$planet->latest_u || (isset($planet->latestU) && $planet->latestU->time < $newScan->time)) {
+		if((isset($planet->latestU) && $planet->latestU->tick < $tick && $planet->latestU) || !$planet->latest_u || (isset($planet->latestU) && $planet->latestU->time < $newScan->time)) {
 			$planet->latest_u = $newScan->id;
 			$planet->save();
 		}

@@ -30,7 +30,10 @@ class MakeBattleCalc
 		'Cat' => 2,
 		'Xan' => 3,
 		'Zik' => 4,
-		'Etd' => 5
+		'Etd' => 5,
+		'Kin' => 6,
+		'Sly' => 7
+		
 	];
 
 	public function __construct(ParseCoordsList $coordParser)
@@ -134,7 +137,7 @@ class MakeBattleCalc
 		$this->params[$type.'_coords_z_'.$num] = $planet->z;
 
 		if($type == 'def' && $num == 1) {
-			if($planet->latestP && $planet->latestP->scan->tick >= ($this->tick->tick-24)) {
+			if($planet->latestP && $planet->latestP->scan && $planet->latestP->scan->tick >= ($this->tick->tick-24)) {
 				$this->params[$type.'_metal_asteroids'] = $planet->latestP->roid_metal;
 				$this->params[$type.'_crystal_asteroids'] = $planet->latestP->roid_crystal;
 				$this->params[$type.'_eonium_asteroids'] = $planet->latestP->roid_eonium;
