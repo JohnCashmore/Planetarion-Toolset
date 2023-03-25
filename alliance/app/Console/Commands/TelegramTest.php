@@ -16,10 +16,8 @@ use App\Setting;
 use DB;
 use App\Telegram\Custom\WhodidthisCommand;
 use App\Telegram\Custom\SmsCommand;
-use App\Telegram\Custom\EffCommand;
-
+use App\Telegram\Custom\Scans\MilitaryCommand;
 use App\Telegram\Commands\DisplaychannelsCommand;
-
 use App\Services\Misc\Transit;
 use App\Services\Misc\Stats;
 use App\Services\Misc\Stop;
@@ -63,8 +61,8 @@ class TelegramTest extends Command
 	 */
 	public function handle()
 	{
-		$cmd = new EffCommand();
-		$cmd->text = '10k beetle';
+		$cmd = new MilitaryCommand();
+		$cmd->text = '1:1:1 ';
 		echo $cmd->execute();
 //		var_dump($cmd->parse('https://game.planetarion.com/showscan.pl?scan_grp=jinfiptb4g3jsif'));
 		

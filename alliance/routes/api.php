@@ -138,6 +138,8 @@ Route::group(['prefix' => 'v1'], function() {
 	  Route::get('/attacks/{attack_id}/battlegroup/bookings/user/{user_id}', 'Api\BattlegroupTeamupsController@getTeamupsBookings');
 	 
       Route::resource('/roles', 'Api\RoleController');
+      Route::resource('/foobar', 'Api\RoleController');
+	  
     });
 
 });

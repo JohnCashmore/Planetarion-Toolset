@@ -1,7 +1,0 @@
-# Careful when using this on first install, logout and log back in if problematic if not resstart server if problems with gyp
-dnf install -y python2 python3
-cd /root 
-npm install -g cross-env
-npm i -g npm@6.14.11
-npm install -g n
-n stable

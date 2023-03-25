@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export NODE_OPTIONS=--openssl-legacy-provider
-rm -rf public/js/app.js
-cp public/js/app.js.copy  public/js/app.js
-npm run dev

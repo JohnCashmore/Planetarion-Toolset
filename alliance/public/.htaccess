@@ -4,9 +4,9 @@
     </IfModule>
 
     RewriteEngine On
-
-        RewriteBase /pinkfluffyunicorns.space/alliance/public
-
+	
+	RewriteBase /vgn-webby/public/
+	
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -21,4 +21,3 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-
