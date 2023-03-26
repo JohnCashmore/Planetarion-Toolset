@@ -120,17 +120,6 @@ return [
 	            'summary'	    => 'App\Telegram\Custom\SummaryCommand',
 				'adminhelp'	    => 'App\Telegram\Custom\AdminHelpCommand',
 
-		    /* ATTACKS */
-		        'attacks'       => 'App\Telegram\Custom\Attacks\AttacksCommand',
-	            'claimed'       => 'App\Telegram\Custom\Attacks\ClaimedCommand',
-		        'maxcap'        => 'App\Telegram\Custom\Attacks\MaxcapCommand',
-	 	        'bcalc'         => 'App\Telegram\Custom\Attacks\BattleCalcCommand',
-		        'bg'            => 'App\Telegram\Custom\Attacks\BattleGroupCommand',
-		        'topbgs'        => 'App\Telegram\Custom\Attacks\TopBGSCommand',
-	            'launch'        => 'App\Telegram\Custom\Attacks\LaunchCommand',
-	            'bash'          => 'App\Telegram\Custom\Attacks\BashCommand',
-	            'prodticks'     => 'App\Telegram\Custom\Attacks\ProdticksCommand',
-	            'sk'            => 'App\Telegram\Custom\Attacks\StructureKillersCommand',
 
 		    /* USELESS VGN COMMANDS */
 	            'church'        => 'App\Telegram\Custom\Useless\ChurchCommand',
